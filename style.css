@@ -1,0 +1,100 @@
+:root {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+.container {
+  height: 100%;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  padding: 0 40px;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+#start,
+#restart {
+  padding: 20px;
+  background: green;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: rgb(39, 130, 39);
+}
+
+.grid {
+  margin: 10px 0;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(
+    10,
+    minmax(100px, 1fr)
+  ); /*auto fill the number of column   /* minmax(100px,1f) the width range  of this column  */
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+}
+
+.snake {
+  background: green;
+}
+
+.apple {
+  background: blue;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  inset: 0;
+  padding: 10px 40px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: red;
+}
+.popup #restart {
+  align-self: center;
+}
+
+.d-none {
+  display: none;
+}
