@@ -12,6 +12,7 @@ let timerId = 0;
 let score = 0;
 let intervalTime = 1000;
 let speed = 0.8; // snake speed
+let snakeDead = false; // boolean value for checking you lose or not (snake insdie gird or not)
 
 function createGrid() {
   // create 100 of these elements with a for loop
@@ -43,7 +44,8 @@ restartBtn.addEventListener("click", () => restartGame());
 
 function move() {
   // make sure that index of current snake after direction is inside squares
-  if (loseGame()) return;
+  loseGame();
+  if (snakeDead) return;
 
   // remove first element form array currentSnake => tail
   const tail = currentSnake.shift();
@@ -99,6 +101,7 @@ function restartGame() {
   removeSanke();
   Array.from(overlayEel).forEach((overlay) => overlay.classList.add("d-none")); // remove overlay
   clearInterval(timerId); // Cleartime
+  snakeDead = false;
   direction = 1; // i make direction as varible beacuse it can change  (top / right /bottom / left ) depend on button i press
   appleIndex = 0;
   scoreDisplay.textContent = "";
@@ -128,9 +131,8 @@ function loseGame() {
       overlay.classList.remove("d-none")
     );
     clearInterval(timerId); // to stop the Moving function
-    return true;
+    snakeDead = true;
   }
-  return false;
 }
 
 // lets start with keyboard code
