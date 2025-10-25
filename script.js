@@ -109,7 +109,7 @@ function restartGame() {
   score = 0;
   currentSnake = [0, 1, 2];
   intervalTime = 1000;
-  drawSnake();
+  startGame();
 }
 
 function loseGame() {
